@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function ResultWrapper() {
+export default function ResultWrapper({ result, reset }) {
   return (
     <div className="result-wrapper">
       <div className="result-txt">
@@ -10,7 +10,7 @@ export default function ResultWrapper() {
             <p>/ person</p>
           </div>
           <h3>
-            $<span id="tip-amount">0</span>
+            $<span id="tip-amount">{result.tip_amount}</span>
           </h3>
         </div>
         <div className="total-amount">
@@ -19,11 +19,16 @@ export default function ResultWrapper() {
             <p>/ person</p>
           </div>
           <h3>
-            $<span id="total">0</span>
+            $<span id="total">{result.total}</span>
           </h3>
         </div>
       </div>
-      <button type="button" id="reset-button" className="reset-button">
+      <button
+        type="button"
+        id="reset-button"
+        className="reset-button"
+        onClick={reset}
+      >
         RESET
       </button>
     </div>
